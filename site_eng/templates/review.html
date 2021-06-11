@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for review in reviews %}
+<div class="jumbotron blog" style="background-color:#7DCFB6; opacity: 90%; ">
+  <h2 class="lead">{{review.review_pub_date}}</h2>
+  <h1 class="display-4">{{review.book_title}}</h1>
+  <p class="lead">Book author: {{review.book_author}}</p>
+  <hr class="my-4">
+  <p>{{review.review_text}}</p>
+  <h3>{{review.review_author}}</h3>
+  <hr class="my-4">
+  <h2>Comments:</h2>
+  {% for comment in review.comments.all %}
+  <br>
+  <h3 class="lead">{{comment.comment_author}}</h3>
+  <p class="lead">{{comment.comment_text}}</p>
+  {% endfor %}
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'createCommentForBlog' %}" role="button" style="border-radius: 25px; background-color:#00B2CA; border-color: none;">Leave a comment</a>
+  </p>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -24,7 +24,7 @@ class CommentRus(models.Model):
 	review = models.ForeignKey(ReviewRus, on_delete = models.CASCADE)
 
 	#Comment text
-	comment_text = models.TextField()
+	comment_text = models.TextField(default = " ")
 
 	#Comment author
 	comment_author = models.CharField(max_length = 100, blank = True)

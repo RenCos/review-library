@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    {% if message%}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>{{message}}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <form class="comment" method="POST">
+             {% csrf_token %}
+            <!--Name of the user-->
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" style="font-size: 25px;"><b>Select blog:</b></label>
+            {{form.review}} 
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput" style="font-size: 25px;"><b>Publication date(required)</b></label>
+            {{form.comment_pub_date}}
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput" style="font-size: 25px;"><b>Your name(optional):</b></label>
+            {{form.comment_author}}
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2" style="font-size: 25px;"><b>Your comment:</b></label>
+            {{form.comment_text}}
+          </div>
+          <button type="submit" class="btn btn-success" style="border-radius: 25px;">Add comment</button>
+        </form>
+    </div>
+{% endblock %}
