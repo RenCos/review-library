@@ -1,34 +1,96 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="welcome-container">
-	<!--<canvas></canvas>-->
-	<div class="message-container">
-		<div class="welcome-title">
-			<b><p>Review Library</p></b>
-		</div>
-		<div class="made-by">
-			<p>Made by N3code team</p>
-		</div>
-		<!--<a class="button" href="why-does-it-exist">Explore</a>--->
-	</div>
-	<img class="img" src="{% static '142-Reading-Book-white.svg' %}">
+    <!--<canvas></canvas>-->
+    <div class="message-container">
+        <div class="welcome-title">
+            <b><p>Review Library</p></b>
+        </div>
+        <div class="made-by">
+            <p>Made by N3code team</p>
+        </div>
+        <!--<a class="button" href="why-does-it-exist">Explore</a>--->
+    </div>
+    <img class="img" src="{% static '142-Reading-Book-white.svg' %}">
 </div>
 
-<script src="{% static 'welcome.js' %}" type="text/javascript"></script>
-
 <div class="why-does-it-exist-container" id="@why-does-it-exist">
-	<div class="why-does-it-exist-container-title">
-		<p>Why does it exist?</p>
-	</div>
-	<div class="why-does-it-exist-container-card-container">
-		<div class="text-rectangle">
-			
-		</div>
-	</div>
+    <div class="why-does-it-exist-container-title">
+        <p>Why does it exist?</p>
+    </div>
+    <div class="why-does-it-exist-container-card-container">
+        <div class="card" style="width: 18rem; margin: auto; border-radius: 25px; margin-top:25px;margin-bottom: 25px; color:#FFFF; background-color:#FCA311;">
+            <img class="card-img-top" src="" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Where am I from?</h5>
+                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin: auto; border-radius: 25px; margin-top:25px;margin-bottom: 25px; color:#FFFF; background-color:#FCA311;">
+            <img class="card-img-top" src="" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Where am I from?</h5>
+                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin: auto; border-radius: 25px; margin-top:25px;margin-bottom: 25px; color:#FFFF; background-color:#FCA311;">
+            <img class="card-img-top" src="" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Where am I from?</h5>
+                <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="why-use-it-container" id="@why-does-it-exist">
+    <div class="why-does-it-exist-container-title">
+        <p>Why use it?</p>
+    </div>
+    <div class="why-use-it-card-container">
+        <div class="image-text-container">
+            <img class="img" src="{% static '172-Diversity-&-Inclusion-Revision-white-outine.svg' %}">
+            <p>It is diverse</p>
+        </div>
+
+        <div class="image-text-container">
+            <img class="img" src="{% static '07-Online-Tutor-white-outline.svg' %}">
+            <p>Educate and learn</p>
+        </div>
+
+        <div class="image-text-container">
+            <img class="img" src="{% static '186-Giving-High-Five-white-outline.svg' %}">
+            <p>Make friends</p>
+        </div>
+    </div>
+</div>
+
+<div class="our-key-features" id="@why-does-it-exist">
+    <div class="our-key-features-title">
+        <p>Why use it?</p>
+    </div>
+    <div class="our-key-features-container">
+        <div class="our-key-features-iamge-container">
+            <p>Cross-platform</p>
+            <img class="img" src="{% static '129-Application-Development-white-outline.svg'%}">
+        </div>
+
+        <div class="our-key-features-iamge-container">
+            <p>Open Source</p>
+            <img class="img" src="{% static '26-Programmer-white-outline.svg'%}">
+        </div>
+
+        <div class="our-key-features-iamge-container">
+            <p>Totally secure</p>
+            <img class="img" src="{% static '59-Cybersecurity-white-outline.svg'%}">
+        </div>
+    </div>
 </div>
 
 <!--JS-->
+<script src="{% static 'welcome.js' %}" type="text/javascript"></script>
 {% endblock %}
