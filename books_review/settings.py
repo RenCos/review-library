@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     #app with english
     'site_eng',
     #app with russian
-    'site_rus'
+    'site_rus',
+    #app with all the components for users
+    'user'
 ]
 
 MIDDLEWARE = [

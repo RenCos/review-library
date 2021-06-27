@@ -6,5 +6,7 @@ urlpatterns = [
     #path for russian app
     path('rus', include('site_rus.urls')),
     #path for english app
-    path('', include('site_eng.urls'))
+    path('', include('site_eng.urls')),
+    #path to the user app
+    path("user", include('user.urls'))
 ]
