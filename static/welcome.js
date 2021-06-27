@@ -15,7 +15,7 @@ let stars = [];
 let pointerX,
     pointerY;
 
-let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
+let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0 };
 
 let touchInput = false;
 
@@ -24,9 +24,9 @@ resize();
 step();
 
 window.onresize = resize;
-canvas.onmousemove = onMouseMove;
-canvas.ontouchmove = onTouchMove;
-canvas.ontouchend = onMouseLeave;
+canvas.onmousemove = false;
+canvas.ontouchmove = false;
+canvas.ontouchend = false;
 document.onmouseleave = onMouseLeave;
 
 function generate() {
@@ -76,7 +76,7 @@ function recycleStar( star ) {
   star.z = STAR_MIN_SCALE + Math.random() * ( 1 - STAR_MIN_SCALE );
 
   if( direction === 'z' ) {
-    star.z = 0.1;
+    star.z = 0.0;
     star.x = Math.random() * width;
     star.y = Math.random() * height;
   }
@@ -126,11 +126,11 @@ function step() {
 
 function update() {
 
-  velocity.tx *= 0.96;
-  velocity.ty *= 0.96;
+  velocity.tx *= 0;
+  velocity.ty *= 0;
 
-  velocity.x += ( velocity.tx - velocity.x ) * 0.8;
-  velocity.y += ( velocity.ty - velocity.y ) * 0.8;
+  velocity.x += ( velocity.tx - velocity.x ) * 0;
+  velocity.y += ( velocity.ty - velocity.y ) * 0;
 
   stars.forEach( ( star ) => {
 
@@ -162,12 +162,12 @@ function render() {
     context.beginPath();
     context.moveTo( star.x, star.y );
 
-    var tailX = velocity.x * 2,
-        tailY = velocity.y * 2;
+    var tailX = velocity.x * 0,
+        tailY = velocity.y * 0;
 
     // stroke() wont work on an invisible line
-    if( Math.abs( tailX ) < 0.1 ) tailX = 0.5;
-    if( Math.abs( tailY ) < 0.1 ) tailY = 0.5;
+    if( Math.abs( tailX ) < 0.1 ) tailX = 0;
+    if( Math.abs( tailY ) < 0.1 ) tailY = 0;
 
     context.lineTo( star.x + tailX, star.y + tailY );
 
