@@ -126,11 +126,19 @@ function step() {
 
 function update() {
 
+<<<<<<< HEAD
   velocity.tx *= 0;
   velocity.ty *= 0;
 
   velocity.x += ( velocity.tx - velocity.x ) * 0;
   velocity.y += ( velocity.ty - velocity.y ) * 0;
+=======
+  velocity.tx *= 0.00;
+  velocity.ty *= 0.00;
+
+  velocity.x += ( velocity.tx - velocity.x ) * 0.1;
+  velocity.y += ( velocity.ty - velocity.y ) * 0.1;
+>>>>>>> c7e757e0e41d7beb7f5532d1fd3fb1c779f8e54e
 
   stars.forEach( ( star ) => {
 
