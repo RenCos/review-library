@@ -15,7 +15,7 @@ let stars = [];
 let pointerX,
     pointerY;
 
-let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0 };
+let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
 
 let touchInput = false;
 
@@ -24,9 +24,9 @@ resize();
 step();
 
 window.onresize = resize;
-canvas.onmousemove = false;
-canvas.ontouchmove = false;
-canvas.ontouchend = false;
+canvas.onmousemove = onMouseMove;
+canvas.ontouchmove = onTouchMove;
+canvas.ontouchend = onMouseLeave;
 document.onmouseleave = onMouseLeave;
 
 function generate() {
@@ -53,7 +53,7 @@ function recycleStar( star ) {
   let direction = 'z';
 
   let vx = Math.abs( velocity.x ),
-	    vy = Math.abs( velocity.y );
+      vy = Math.abs( velocity.y );
 
   if( vx > 1 || vy > 1 ) {
     let axis;
@@ -76,7 +76,7 @@ function recycleStar( star ) {
   star.z = STAR_MIN_SCALE + Math.random() * ( 1 - STAR_MIN_SCALE );
 
   if( direction === 'z' ) {
-    star.z = 0.0;
+    star.z = 0.1;
     star.x = Math.random() * width;
     star.y = Math.random() * height;
   }
@@ -126,19 +126,11 @@ function step() {
 
 function update() {
 
-<<<<<<< HEAD
   velocity.tx *= 0;
   velocity.ty *= 0;
 
-  velocity.x += ( velocity.tx - velocity.x ) * 0;
-  velocity.y += ( velocity.ty - velocity.y ) * 0;
-=======
-  velocity.tx *= 0.00;
-  velocity.ty *= 0.00;
-
-  velocity.x += ( velocity.tx - velocity.x ) * 0.1;
-  velocity.y += ( velocity.ty - velocity.y ) * 0.1;
->>>>>>> c7e757e0e41d7beb7f5532d1fd3fb1c779f8e54e
+  velocity.x += ( velocity.tx - velocity.x ) * 0.8;
+  velocity.y += ( velocity.ty - velocity.y ) * 0.8;
 
   stars.forEach( ( star ) => {
 
@@ -170,12 +162,12 @@ function render() {
     context.beginPath();
     context.moveTo( star.x, star.y );
 
-    var tailX = velocity.x * 0,
-        tailY = velocity.y * 0;
+    var tailX = velocity.x * 2,
+        tailY = velocity.y * 2;
 
     // stroke() wont work on an invisible line
-    if( Math.abs( tailX ) < 0.1 ) tailX = 0;
-    if( Math.abs( tailY ) < 0.1 ) tailY = 0;
+    if( Math.abs( tailX ) < 0.1 ) tailX = 0.5;
+    if( Math.abs( tailY ) < 0.1 ) tailY = 0.5;
 
     context.lineTo( star.x + tailX, star.y + tailY );
 
