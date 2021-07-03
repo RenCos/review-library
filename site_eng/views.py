@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import  AddCommentEng
+from .forms import  AddCommentEng, AddReviewEng
 from django.contrib import messages
 from .models import ReviewEng, CommentEng
+
 
 
 def welcomePage(request):
@@ -34,7 +35,7 @@ def createCommentForBlog(request):
 
 	#creating dictionary to pass the AddCommentEng form to the page
 	#and render it in the html document 
-	context = {"form":AddCommentEng}
+	#context = {"form":AddCommentEng}
 
 
 	#when the user will fill in the form
@@ -42,18 +43,48 @@ def createCommentForBlog(request):
 	#need to save the form and redirect 
 	#the user to the comment they created
 	if request.method == 'POST':
-		form = AddCommentEng(request.POST or None)
+		form = AddCommentEng(request.POST)
 
 		#check if the form is valid and save it if it is
 		if form.is_valid():
 			form.save()
-
-			#a message will popup sayuing that the comment has been added
+			#a message will popup saying that the comment has been added
 			messages.success(request, "Comment has been added!")
 
 			#then we redirect the user to the page with all the blogs
 			return redirect('reviewPage')
+	else:
+		form = AddCommentEng()
+		#rendering the page and form
+	return render(request, 'form.html', {'form': AddCommentEng})
 
-	#rendering the page and form
-	return render(request, 'form.html', context)
+
+
+def createReviewForBlog(request):
+	"""view function for rendering the page with form for blogs"""
+
+	#creating dictionary to pass the AddCommentEng form to the page
+	#and render it in the html document 
+	#context = {"form":AddCommentEng}
+
+
+	#when the user will fill in the form
+	#a post request will be send and I 
+	#need to save the form and redirect 
+	#the user to the comment they created
+	if request.method == 'POST':
+		form = AddReviewEng(request.POST)
+
+		#check if the form is valid and save it if it is
+		if form.is_valid():
+			form.save()
+			#a message will popup saying that the comment has been added
+			messages.success(request, "Review has been added!")
+
+			#then we redirect the user to the page with all the blogs
+			return redirect('reviewPage')
+	else:
+		form = AddReviewEng()
+		#rendering the page and form
+	return render(request, 'review_form.html', {'form': AddReviewEng})
 

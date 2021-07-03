@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 class ReviewEng(models.Model):
 	"""Model for writting reviews in English"""
@@ -16,7 +17,7 @@ class ReviewEng(models.Model):
 	review_author = models.CharField(max_length = 100, blank = True)
 
 	#Review publication date
-	review_pub_date = models.DateField()
+	review_pub_date = models.DateField(default=date.today().strftime('%d/%m/%Y'))
 
 	def __str__(self):
 		return self.book_title
@@ -32,7 +33,7 @@ class CommentEng(models.Model):
 	comment_author = models.CharField(max_length = 100, blank = True)
 
 	#Comment publication date
-	comment_pub_date = models.DateField()
+	comment_pub_date = models.DateField(default=date.today().strftime('%d/%m/%Y'))
 
 	def __str__(self):
 		return self.comment_author

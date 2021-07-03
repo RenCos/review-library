@@ -17,20 +17,24 @@
              {% csrf_token %}
             <!--Name of the user-->
           <div class="form-group">
-            <label for="exampleFormControlSelect1" style="font-size: 25px;"><b>Select blog:</b></label>
-            {{form.review}} 
+            <label for="exampleFormControlSelect1" style="font-size: 25px;"><b>Book Title</b></label>
+            {{form.book_title}} 
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput" style="font-size: 25px;"><b>Book Author</b></label>
+            {{form.book_author}} 
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput" style="font-size: 25px;"><b>Publication date(required)</b></label>
-            {{form.comment_pub_date}}
+            {{form.review_pub_date}}
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput" style="font-size: 25px;"><b>Your name(optional):</b></label>
-            {{form.comment_author}}
+            {{form.review_author}}
           </div>
           <div class="form-group">
-            <label for="formGroupExampleInput2" style="font-size: 25px;"><b>Your comment:</b></label>
-            {{form.comment_text}}
+            <label for="formGroupExampleInput2" style="font-size: 25px;"><b>Your review:</b></label>
+            {{form.review_text}}
           </div>
           <button type="submit" class="btn btn-success" style="border-radius: 25px;">Add comment</button>
         </form>

@@ -9,5 +9,8 @@ urlpatterns = [
     path('comment-form', views.createCommentForBlog, name ='createCommentForBlog'),
 
     #path for review page
-    path('review-page', views.reviewPage, name = 'reviewPage')
+    path('review-page', views.reviewPage, name = 'reviewPage'),
+
+    #path for creating reviews
+    path('review-form', views.createReviewForBlog, name = 'createReviewForBlog')
 ]
